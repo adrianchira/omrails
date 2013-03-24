@@ -1,20 +1,31 @@
 /* You can change the font here*/
 /*FontFamily: Oxygen;
 @import url(http://fonts.googleapis.com/css?family=Oxigen);*/
-$btnPrimaryBackground:  green;
-$navbarBackgroundHighlight: white;
+$btnPrimaryBackground:  #DD1F26;
+$navbarBackgroundHighlight: lightgrey;
 $navbarBackground: white;
 
 @import 'bootstrap';
 
+.btn-primary {
+	text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+  color: white;
+  font-weight: bold;
+}
 body {
-	padding-top: 60px;
+	padding-top: 80px;
 }
 
 @import 'bootstrap-responsive';
 
+.nav a {
+margin: 5px;
+font-size: large;
+font-weight: bold;
+letter-spacing: 1px;
+}
 .navbar-inner {
-@include box-shadow(none !important);
+@include box-shadow(2px !important);
 border: 0;
 
 }
