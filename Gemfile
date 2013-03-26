@@ -5,9 +5,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form'
 gem "paperclip", "~> 3.0"
-gem 'youtube_it'
-gem 'inherited_resources'
-gem 'acts_as_commentable'
+gem 'activerecord-reputation-system', require: 'reputation_system'
 
 
 group :production do

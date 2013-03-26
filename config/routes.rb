@@ -1,5 +1,7 @@
 Omrails::Application.routes.draw do
-  resources :pins
+  resources :pins do
+    member { post :vote }
+  end
 
 
   devise_for :users

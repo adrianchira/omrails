@@ -18,6 +18,11 @@
 			<%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
 		</p>
 		<% end%>
+	|	 <%= pluralize pin.reputation_for(:votes).to_i, "like" %>
+	<% if current_user && !current_user.voted_for?(pin) %>
+  | <%= link_to "up", vote_pin_path(pin, type: "up"), method: "post" %>
+  | <%= link_to "down", vote_pin_path(pin, type: "down"), method: "post" %>
+<% end %>
 </p>
 	
 </div>      

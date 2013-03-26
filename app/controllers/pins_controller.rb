@@ -3,7 +3,7 @@
   # GET /pins
   # GET /pins.json
   def index
-    @pins = Pin.order("created_at desc")
+    @pins = Pin.find_with_reputation(:votes, :all, order: "created_at desc")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,5 +80,12 @@
       format.html { redirect_to pins_url }
       format.json { head :no_content }
     end
+  end
+
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @pin = Pin.find(params[:id])
+    @pin.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thank you for voting"
   end
 end

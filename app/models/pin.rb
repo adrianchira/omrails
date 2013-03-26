@@ -7,5 +7,6 @@ class Pin < ActiveRecord::Base
   validates :yt_video_id, presence: true
  
   belongs_to :user
+  has_reputation :votes, source: :user, aggregated_by: :sum
   
 end

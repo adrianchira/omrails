@@ -9,4 +9,11 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
   has_many :pins, dependent: :destroy
+  has_many :evaluations, class_name: "RSEvaluation", as: :source
+
+  has_reputation :votes, source: {reputation: :votes, of: :pins}, aggregated_by: :sum
+
+  def voted_for?(pin)
+  	evaluations.where(target_type: pin.class, target_id: pin.id).present?
+  end
 end
