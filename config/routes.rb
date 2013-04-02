@@ -1,4 +1,7 @@
 Omrails::Application.routes.draw do
+  resources :comments
+
+
   resources :pins do
     member { post :vote }
   end
