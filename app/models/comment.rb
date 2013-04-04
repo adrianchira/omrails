@@ -1,3 +1,4 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :comment
+  attr_accessible :body
+  belongs_to :pin
 end

@@ -11,13 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130402215915) do
+ActiveRecord::Schema.define(:version => 20130404005619) do
 
   create_table "comments", :force => true do |t|
-    t.string   "comment"
+    t.integer  "pin_id"
+    t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "comments", ["pin_id"], :name => "index_comments_on_pin_id"
 
   create_table "pins", :force => true do |t|
     t.string   "description"

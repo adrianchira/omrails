@@ -2,7 +2,8 @@
 
 <table>
   <tr>
-    <th>Comment</th>
+    <th>Pin</th>
+    <th>Body</th>
     <th></th>
     <th></th>
     <th></th>
@@ -10,7 +11,8 @@
 
 <% @comments.each do |comment| %>
   <tr>
-    <td><%= comment.comment %></td>
+    <td><%= comment.pin_id %></td>
+    <td><%= comment.body %></td>
     <td><%= link_to 'Show', comment %></td>
     <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
     <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

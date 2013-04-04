@@ -1,10 +1,11 @@
 class CreateComments < ActiveRecord::Migration
   def change
-    drop_table :comments
     create_table :comments do |t|
-      t.string :comment
+      t.integer :pin_id
+      t.text :body
 
       t.timestamps
     end
+    add_index :comments, :pin_id
   end
 end

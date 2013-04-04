@@ -1,9 +1,11 @@
-Omrails::Application.routes.draw do
+Omrails::Application.routes.draw do 
   resources :comments
 
 
-  resources :pins do
+  
+    resources :pins  do
     member { post :vote }
+    resources :comments
   end
 
 
