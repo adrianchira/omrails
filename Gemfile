@@ -6,6 +6,8 @@ gem 'devise'
 gem 'simple_form'
 gem "paperclip", "~> 3.0"
 gem 'activerecord-reputation-system', require: 'reputation_system'
+gem 'will_paginate' 
+gem 'bootstrap-will_paginate'
 
 
 group :production do
