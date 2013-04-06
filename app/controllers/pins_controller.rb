@@ -5,11 +5,12 @@
   # GET /pins.json
   def index
     @pins = Pin.find_with_reputation(:votes, :all, order: "created_at desc")
-    @pins = @pins.paginate(:page => params[:page], :per_page => 2)
+    @pins = @pins.paginate(:page => params[:page], :per_page => 20)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @pins }
+      format.js
     end
   end
 

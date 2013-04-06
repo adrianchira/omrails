@@ -14,10 +14,9 @@
 		
 	<% if current_user && !current_user.voted_for?(pin) %>
    <%= link_to(image_tag('up.png'), vote_pin_path(pin, type: "up"), method: "post") %>
-  	 <%= pluralize pin.reputation_for(:votes).to_i, "like" %>
-   <%= link_to(image_tag('down.png'), vote_pin_path(pin, type: "down"), method: "post") %>
-  <% else pluralize pin.reputation_for(:votes).to_i, "like" %>
+  
 <% end %>
+<%= pluralize pin.reputation_for(:votes).to_i, "like" %>
 &nbsp <%= link_to(image_tag('comment.png', :alt => "Comment", :title => "Comments"), pin) %> 
 		<% @pin = pin%>
 		<%= @pin.comments.count %>
