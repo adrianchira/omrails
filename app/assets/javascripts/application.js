@@ -15,3 +15,9 @@
 //= require jquery.masonry.min.js
 //= require bootstrap
 //= require_tree .
+$("#backtotop").affix({
+    offset: {
+        top: $("header").outerHeight(true),
+        bottom: $("footer").outerHeight(true)
+    }
+});

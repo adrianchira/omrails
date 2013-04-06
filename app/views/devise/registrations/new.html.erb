@@ -4,8 +4,10 @@
   <%= f.error_notification %>
 	<%= f.input :name %> 
   <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
+  <% if f.object.password_required? %>
+  	<%= f.input :password %>
+  	<%= f.input :password_confirmation %>
+  <% end %>
 
   
   <div class="form-actions">

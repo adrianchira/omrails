@@ -9,7 +9,7 @@ Omrails::Application.routes.draw do
   end
 
 
-  devise_for :users
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
 get 'about' => 'pages#about'
 root :to => 'pins#index' 
