@@ -91,4 +91,15 @@
     @pin.add_or_update_evaluation(:votes, value, current_user)
     redirect_to :back, notice: "Thank you for voting"
   end
+  def copy
+  pin = Pin.find(params[:pin])
+  new_pin = current_user.pins.new(:description => pin.description, :yt_video_id => pin.yt_video_id)    
+  respond_to do |format|
+    if new_pin.save
+      format.html { redirect_to new_pin, notice: 'Pin was successfully created.' }
+    else
+      format.html { redirect_to root_url, notice: "Error saving pin." }
+end
+end
+end
 end

@@ -13,7 +13,7 @@
 	<p>
 		
 	<% if current_user && !current_user.voted_for?(pin) %>
-   <%= link_to(image_tag('up.png'), vote_pin_path(pin, type: "up"), method: "post") %>
+   <%= link_to(image_tag('up.png', :alt => "Like", :title => "Like"), vote_pin_path(pin, type: "up"), method: "post") %>
   
 <% end %>
 <%= pluralize pin.reputation_for(:votes).to_i, "like" %>
@@ -28,6 +28,9 @@
 		<% else %>
 &nbsp		<%= link_to(image_tag('show.png', :alt => "Show", :title => "Show"), pin) %>
 		<% end%>
+		<% if user_signed_in? %>
+  &nbsp <%= link_to(image_tag('repin.png', :alt => "Repin", :title => "Re-pin"), repin_path(pin), method: :post) %>
+<% end %>
 </p>
 	
 </div>      

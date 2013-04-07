@@ -13,6 +13,7 @@ Omrails::Application.routes.draw do
 
 get 'about' => 'pages#about'
 root :to => 'pins#index' 
+post 'pins/:pin' => 'pins#copy', :as => :repin
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
