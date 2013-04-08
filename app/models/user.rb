@@ -6,12 +6,20 @@ class User < ActiveRecord::Base
           :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :image
+  
   # attr_accessible :title, :body
   has_many :pins, dependent: :destroy
   has_many :evaluations, class_name: "RSEvaluation", as: :source
 
   has_reputation :votes, source: {reputation: :votes, of: :pins}, aggregated_by: :sum
+  has_attached_file :image, styles: { tiny:  "25x25#",
+    :thumbnail => "100x100#",
+    :small  => "150x150>",
+    :medium => "300x300>" },
+    :default_url => "/images/default_:style.png"
+  #validates_attachement :image, content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']},
+   #                              size: {less_than: 1.megabytes}
 
   def voted_for?(pin)
   	evaluations.where(target_type: pin.class, target_id: pin.id).present?

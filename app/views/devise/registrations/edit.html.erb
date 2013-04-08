@@ -2,10 +2,12 @@
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, class: 'form-horizontal' }) do |f| %>
   <%= f.error_notification %>
+  <%= f.full_error :image_file_size, class: "alert-error" %>
+  <%= f.full_error :image_content_type, class: "alert-error" %>
 
   <%= f.input :name %> 
   <%= f.input :email %>
-
+  <%= f.input :image, label: "Change your avatar" %>
  
   <%= f.input :password, label: "New Password", autocomplete: "off" %>
 
