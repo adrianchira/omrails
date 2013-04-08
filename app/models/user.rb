@@ -13,11 +13,9 @@ class User < ActiveRecord::Base
   has_many :evaluations, class_name: "RSEvaluation", as: :source
 
   has_reputation :votes, source: {reputation: :votes, of: :pins}, aggregated_by: :sum
-  has_attached_file :image, styles: { tiny:  "25x25#",
-    :thumbnail => "100x100#",
-    :small  => "150x150>",
-    :medium => "300x300>" },
-    :default_url => "/images/default_:style.png"
+  has_attached_file :image, styles: { tiny:  "30x30#",
+    :thumbnail => "60x60#"},
+    :default_url => "/assets/default_tiny.png"
   #validates_attachement :image, content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']},
    #                              size: {less_than: 1.megabytes}
 

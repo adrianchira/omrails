@@ -9,7 +9,9 @@ http://www.youtube.com/embed/<%= pin.yt_video_id %> -->
 	</p>
 	<p>
 		<strong>
-			  Posted by <%= pin.user.name %>
+			  Posted by <%= pin.user.name %>  
+			  <%= image_tag(pin.user.image(:tiny), :alt => pin.user.name, :title => pin.user.name) %>
+			  
 		</strong>
 	</p>
 	<p>
