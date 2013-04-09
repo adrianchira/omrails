@@ -1,11 +1,16 @@
 /* You can change the font here*/
 /*FontFamily: Oxygen;
+
 @import url(http://fonts.googleapis.com/css?family=Oxigen);*/
+
+/************************ CSS Variables ***************************/
 $btnPrimaryBackground:  #DD1F26;
 $navbarBackgroundHighlight: lightgrey;
 $navbarBackground: white;
-
+/************************ Import Bootstrap ********************************/
 @import 'bootstrap';
+@import 'bootstrap-responsive';
+
 
 .btn-primary {
 	text-shadow: 0 -1px 0 rgba(0,0,0,.25);
@@ -16,7 +21,20 @@ body {
 	padding-top: 80px;
 }
 
-@import 'bootstrap-responsive';
+.no_display {
+	display: none;
+}
+
+
+/************************ Back-to-top Style ********************************/
+#back_to_top {
+	position: fixed;
+	right: 0;
+	top: 150px;
+	display: block;
+}
+
+/************************ Buttons *****************************************/
 
 .nav a {
 margin-top: 5px;

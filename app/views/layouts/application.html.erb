@@ -12,7 +12,12 @@
 			<% flash.each do |name, msg| %>
 				<%= content_tag(:div, msg, class: "alert alert-#{name}") %>
 			<% end %>	
-		<%= yield %>
+		<div class="container">			
+			<%= yield %>	
+				<div id="back_to_top">
+				<%= link_to (image_tag 'back-to-top.png'), '#' %>
+				</div>		
+		</div><!-- End container -->
 		
 		<%= render 'layouts/footer' %>
 		</div>

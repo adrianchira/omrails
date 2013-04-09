@@ -13,19 +13,4 @@
  */
 
  
-#backtotop ul {
-		 &.affix{
-		top:10px;
-        bottom:auto;
-	 }
-    
-    &.affix-top{
-		
-	 }
 
-	  &.affix-bottom{
-		position:absolute;
-		top:auto;
-        bottom:140px;
-	 }
-}
