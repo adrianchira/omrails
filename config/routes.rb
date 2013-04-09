@@ -1,4 +1,7 @@
 Omrails::Application.routes.draw do 
+  resources :channels
+
+
   resources :comments
 
 

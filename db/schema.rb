@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130407104734) do
+ActiveRecord::Schema.define(:version => 20130409194303) do
+
+  create_table "channels", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "comments", :force => true do |t|
     t.integer  "pin_id"
@@ -24,14 +31,15 @@ ActiveRecord::Schema.define(:version => 20130407104734) do
 
   create_table "pins", :force => true do |t|
     t.string   "description"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.integer  "user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "yt_video_id"
+    t.string   "site",               :default => "youtube"
   end
 
   add_index "pins", ["user_id"], :name => "index_pins_on_user_id"
