@@ -11,14 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409194303) do
+ActiveRecord::Schema.define(:version => 20130410001024) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
   end
+
+  add_index "channels", ["user_id"], :name => "index_channels_on_user_id"
 
   create_table "comments", :force => true do |t|
     t.integer  "pin_id"
@@ -40,8 +43,12 @@ ActiveRecord::Schema.define(:version => 20130409194303) do
     t.datetime "image_updated_at"
     t.string   "yt_video_id"
     t.string   "site",               :default => "youtube"
+    t.integer  "channel_id"
+    t.integer  "site_id"
   end
 
+  add_index "pins", ["channel_id"], :name => "index_pins_on_channel_id"
+  add_index "pins", ["site_id"], :name => "index_pins_on_site_id"
   add_index "pins", ["user_id"], :name => "index_pins_on_user_id"
 
   create_table "rs_evaluations", :force => true do |t|

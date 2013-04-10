@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :pins, dependent: :destroy
   has_many :evaluations, class_name: "RSEvaluation", as: :source
+  has_many :channels, dependent: :destroy
 
   has_reputation :votes, source: {reputation: :votes, of: :pins}, aggregated_by: :sum
   has_attached_file :image, styles: { tiny:  "30x30#",

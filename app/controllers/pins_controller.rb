@@ -28,8 +28,8 @@
   # GET /pins/new
   # GET /pins/new.json
   def new
+    
     @pin = current_user.pins.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @pin }
@@ -92,14 +92,24 @@
     redirect_to :back, notice: "Thank you for voting"
   end
   def copy
+  
   pin = Pin.find(params[:pin])
-  new_pin = current_user.pins.new(:description => pin.description, :yt_video_id => pin.yt_video_id)    
+  @channel = current_user.channels.last
+  new_pin = current_user.pins.new(:description => pin.description, :yt_video_id => pin.yt_video_id, :site_id => pin.site_id, :channel_id => @channel.id)    
   respond_to do |format|
     if new_pin.save
-      format.html { redirect_to new_pin, notice: 'Pin was successfully created.' }
+      format.html { redirect_to edit_pin_path(new_pin)}
     else
       format.html { redirect_to root_url, notice: "Error saving pin." }
 end
 end
+ # new_pin = current_user.pins.new(:description => pin.description, :yt_video_id => pin.yt_video_id)    
+ # respond_to do |format|
+ #   if new_pin.save
+ #     format.html { redirect_to new_pin, notice: 'Pin was successfully created.' }
+ #   else
+ #     format.html { redirect_to root_url, notice: "Error saving pin." }
+#end
+#end
 end
 end
