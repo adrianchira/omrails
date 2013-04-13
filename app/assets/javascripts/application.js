@@ -14,7 +14,9 @@
 //= require jquery_ujs
 //= require jquery.masonry.min.js
 //= require bootstrap
+
 //= require_tree .
+
 $(function() {
 	//code to show/hide scroll-to-top button
 	$(window).on('scroll', function(){

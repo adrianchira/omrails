@@ -21,8 +21,12 @@
 			     <li><%= link_to "About", about_path %></li>
 		    </ul>
         <% if user_signed_in? %>
-        <form class="navbar-search pull-left">
-            <input type="text" class="search-query" placeholder="Search">
+        
+        <form action="/pins" class="navbar-search pull-left" method="get">
+            <input id="search" type="text" name="search"  class="search-query" placeholder="Search">
+           
+            
+            <%= image_submit_tag("Search.png", :name => nil) %>
         </form>
         <% end %>
 		    <ul class="nav pull-right">

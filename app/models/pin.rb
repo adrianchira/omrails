@@ -12,4 +12,13 @@ class Pin < ActiveRecord::Base
   belongs_to :channel
   has_reputation :votes, source: :user, aggregated_by: :sum
   has_many :comments
+
+
+def self.search(search)
+  if search
+    find(:all, :conditions => ['description LIKE ?', "%#{search}%"])
+  else
+    find(:all)
+  end
+end
 end

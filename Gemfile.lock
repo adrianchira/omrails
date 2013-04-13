@@ -57,6 +57,7 @@ GEM
       multi_json (~> 1.0)
     faraday (0.8.7)
       multipart-post (~> 1.1)
+    flat-ui-rails (0.0.2)
     hashie (1.2.0)
     hike (1.2.1)
     httpauth (0.2.0)
@@ -166,6 +167,7 @@ DEPENDENCIES
   bootstrap-will_paginate
   coffee-rails (~> 3.2.1)
   devise
+  flat-ui-rails
   jquery-rails
   omniauth
   omniauth-facebook

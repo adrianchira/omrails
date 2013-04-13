@@ -4,7 +4,12 @@
   # GET /pins
   # GET /pins.json
   def index
-    @pins = Pin.find_with_reputation(:votes, :all, order: "created_at desc")
+    
+    
+    @pins = Pin.search(params[:search])
+    
+  #  @pins = Pin.find_with_reputation(:votes, :all, order: "created_at desc")
+    
     @pins = @pins.paginate(:page => params[:page], :per_page => 20)
 
     respond_to do |format|
@@ -111,5 +116,6 @@ end
  #     format.html { redirect_to root_url, notice: "Error saving pin." }
 #end
 #end
+
 end
 end

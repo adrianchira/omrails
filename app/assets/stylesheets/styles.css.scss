@@ -10,9 +10,22 @@ $navbarBackground: white;
 /************************ Import Bootstrap ********************************/
 @import 'bootstrap';
 @import 'bootstrap-responsive';
+@import "flat-ui";
 
 
 .btn-primary {
+	text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+  color: white;
+  font-weight: bold;
+}
+body {
+	padding-top: 80px;
+}
+.btn add-on{
+	height: inherit !important;
+	margin-top: 5px;
+}
+.btn-danger {
 	text-shadow: 0 -1px 0 rgba(0,0,0,.25);
   color: white;
   font-weight: bold;
@@ -24,7 +37,10 @@ body {
 .no_display {
 	display: none;
 }
+.navbar-search {
+		margin-top: 15px;
 
+}
 
 /************************ Back-to-top Style ********************************/
 #back_to_top {
