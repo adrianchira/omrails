@@ -20,14 +20,16 @@
         	 <!-- <li><%= link_to "Home", root_path %></li> -->
 			     <li><%= link_to "About", about_path %></li>
 		    </ul>
-        <% if user_signed_in? %>
-        
         <form action="/pins" class="navbar-search pull-left" method="get">
             <input id="search" type="text" name="search"  class="search-query" placeholder="Search">
            
             
             <%= image_submit_tag("Search.png", :name => nil) %>
         </form>
+
+        <% if user_signed_in? %>
+        
+        
         <% end %>
 		    <ul class="nav pull-right">
         	 <% if user_signed_in? %>
@@ -38,6 +40,7 @@
                 <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
+                    <li><%= link_to "My Channels", channels_path %></li>
                     <li><%= link_to "Edit your profile", edit_user_registration_path %></li>
                     <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
                 </ul>
