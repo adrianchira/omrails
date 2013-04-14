@@ -5,8 +5,9 @@
 				<p>
 				You are watching the <%= @channel.name %> channel for <%= @channel.description %>
 				</p>
-
+				<% if current_user == @channel.user %>
 				<%= link_to 'Edit', edit_channel_path(@channel) %> |
+				<% end %>
 				<%= link_to 'Back', channels_path %>
 		</div>
 		<div id="pins">
