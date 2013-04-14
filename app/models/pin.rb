@@ -10,6 +10,7 @@ class Pin < ActiveRecord::Base
  
   belongs_to :user
   belongs_to :channel
+  belongs_to :site
   has_reputation :votes, source: :user, aggregated_by: :sum
   has_many :comments, dependent: :destroy
 

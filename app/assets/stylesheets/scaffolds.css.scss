@@ -13,17 +13,19 @@ p, ol, ul, td {
 }
 
 pre {
-  background-color: #fff;
+  background-color: #eee;
   padding: 10px;
   font-size: 11px;
 }
 
 a {
   color: #000;
-  
+  &:visited {
+    color: #666;
+  }
   &:hover {
     color: #fff;
-    background-color: #ccc;
+    background-color: #000;
   }
 }
 

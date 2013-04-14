@@ -14,7 +14,8 @@
   </table>
   	<%= f.input :yt_video_id, label: "Enter the video ID" %>
     <%= f.input :description, as: :text, input_html: { rows: "3" } %>
-    <%= f.input :site_id, as: :integer %>
+    <% @site = Site.all %>
+    <%= f.input :site_id, :label => "Site", :collection => @site, :include_blank => false, :input_html => {:multiple => false} %>
   
 
   <div class="form-actions">

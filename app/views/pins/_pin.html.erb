@@ -2,7 +2,11 @@
 
 <!--http://i3.ytimg.com/vi/<%= pin.yt_video_id %>/mqdefault.jpg 
 http://www.youtube.com/embed/<%= pin.yt_video_id %> -->
-<a href="/pins/<%= pin.id %>"><img width="270" height="158" src="http://i3.ytimg.com/vi/<%= pin.yt_video_id %>/mqdefault.jpg" frameborder="0" ></img></a> 
+<% if pin.site_id == 1 %>
+	<a href="/pins/<%= pin.id %>"><img width="270" height="158" src="http://i3.ytimg.com/vi/<%= pin.yt_video_id %>/mqdefault.jpg" frameborder="0" ></img></a>
+<% else %>
+	<iframe src="http://player.vimeo.com/video/<%= pin.yt_video_id %>" width="270" height="158" frameborder="0" ></iframe>
+<% end %> 
 
 	<p class="description">
 		<%= pin.description %>
