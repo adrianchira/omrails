@@ -102,6 +102,7 @@
   @channel = current_user.channels.last
   new_pin = current_user.pins.new(:description => pin.description, :yt_video_id => pin.yt_video_id, :site_id => pin.site_id, :channel_id => @channel.id)    
   respond_to do |format|
+    
     if new_pin.save
       format.html { redirect_to edit_pin_path(new_pin)}
     else

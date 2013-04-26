@@ -20,7 +20,7 @@
 $(function() {
 	//code to show/hide scroll-to-top button
 	$(window).on('scroll', function(){
-		if( $(window).scrollTop()  < 500 ) {			
+		if( $(window).scrollTop()  < 700 ) {			
 			$('#back_to_top img').addClass('no_display');
 		} 
 		else {
