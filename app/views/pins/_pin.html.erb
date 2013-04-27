@@ -5,7 +5,9 @@ http://www.youtube.com/embed/<%= pin.yt_video_id %> -->
 <% if pin.site_id == 1 %>
 	<a href="/pins/<%= pin.id %>"><img width="270" height="158" src="http://i3.ytimg.com/vi/<%= pin.yt_video_id %>/mqdefault.jpg" frameborder="0" ></img></a>
 <% else %>
-	<iframe src="http://player.vimeo.com/video/<%= pin.yt_video_id %>" width="270" height="158" frameborder="0" ></iframe>
+<% url ="http://vimeo.com/#{pin.yt_video_id}" %>
+<% photo_url = Nokogiri::HTML(open(url)).css("meta[property='og:image']").first.attributes["content"] %>
+	<iframe src="<%= photo_url %>" width="270" height="158" frameborder="0" ></iframe>
 <% end %> 
 
 	<p class="description">
