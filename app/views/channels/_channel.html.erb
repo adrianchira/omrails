@@ -3,7 +3,7 @@
 	<center> <h3> <%= channel.name %> </h3> </center> 
 	<% @pin = channel.pins.last %>
 	
-	<a href="/channels/<%= channel.id %>"><img width="270" height="158" src="http://i3.ytimg.com/vi/<%= @pin.yt_video_id %>/mqdefault.jpg" frameborder="0" ></img></a> 
+	<a href="/channels/<%= channel.id %>"><img width="270" height="158" src="<%= @pin.thumb_url %>" frameborder="0" ></img></a> 
 
 	
    <p>

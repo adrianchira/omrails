@@ -34,8 +34,12 @@
   # GET /pins/new.json
   def new
     
-    @pin = current_user.pins.new
-    
+      @pin = current_user.pins.new()
+      @pin.description = params[:description]
+      @pin.yt_video_id = params[:yt_video_id]
+      @pin.site_id = params[:site_id]
+     
+      
      
     respond_to do |format|
       format.html # new.html.erb
