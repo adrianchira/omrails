@@ -1,5 +1,5 @@
 class Pin < ActiveRecord::Base
-  attr_accessible :description, :image, :yt_video_id, :channel_id, :site_id
+  attr_accessible :description, :image, :yt_video_id, :channel_id, :site_id, :thumb_url
 
 
   validates :description, presence: true
@@ -17,7 +17,7 @@ class Pin < ActiveRecord::Base
 
 def self.search(search)
   if search
-    find(:all, :conditions => ['description LIKE ?', "%#{search}%"])
+    find(:all, :conditions => ['description LIKE ?', "%#{search}%"], order: "created_at desc")
   else
     find_with_reputation(:votes, :all, order: "created_at desc")
     
