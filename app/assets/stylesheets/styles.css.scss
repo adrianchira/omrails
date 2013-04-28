@@ -8,9 +8,9 @@ $btnPrimaryBackground:  #DD1F26;
 $navbarBackgroundHighlight: lightgrey;
 $navbarBackground: white;
 /************************ Import Bootstrap ********************************/
-
+@import 'bootstrap';
 @import 'bootstrap-responsive';
-@import "flat-ui";
+
 
 
 .btn-primary {
@@ -18,6 +18,7 @@ $navbarBackground: white;
   color: white;
   font-weight: bold;
 }
+
 body {
 	padding-top: 80px;
 }
@@ -30,15 +31,25 @@ body {
   color: white;
   font-weight: bold;
 }
-body {
-	padding-top: 80px;
-}
 
 .no_display {
 	display: none;
 }
+
+.nav a {
+margin-top: 5px;
+font-size: large;
+font-weight: bold;
+
+}
+.navbar-inner {
+@include box-shadow(2px !important);
+border: 1;
+
+}
+
 .navbar-search {
-		margin-top: 25px;
+		margin-top: 12px;
 
 }
 
@@ -51,18 +62,6 @@ body {
 }
 
 /************************ Buttons *****************************************/
-
-.nav a {
-margin-top: 5px;
-font-size: large;
-font-weight: bold;
-
-}
-.navbar-inner {
-@include box-shadow(2px !important);
-border: 0;
-
-}
 
 .footer {
 	margin-top: 50px;

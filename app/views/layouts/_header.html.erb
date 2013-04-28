@@ -16,40 +16,40 @@
  
       <!-- Everything you want hidden at 940px or less, place within here -->
       <div class="nav-collapse collapse">
-      	<ul class="nav">
-        	 <!-- <li><%= link_to "Home", root_path %></li> -->
-			     <li><%= link_to "About", about_path %></li>
-		    </ul>
-        <form action="/pins" class="navbar-search pull-left" method="get">
-            <input id="search" type="text" name="search"  class="search-query" placeholder="Search">
-           
-            
-            <%= image_submit_tag("Search.png", :name => nil) %>
-        </form>
+          	<ul class="nav">
+            	 <!-- <li><%= link_to "Home", root_path %></li> -->
+    			     <li><%= link_to "About", about_path %></li>
+    		    </ul>
+            <form action="/pins" class="navbar-search pull-left" method="get">
+                <input id="search" type="text" name="search"  class="search-query" placeholder="Search">
+               
+                
+                <%= image_submit_tag("Search.png", :name => nil) %>
+            </form>
 
-        <% if user_signed_in? %>
-        
-        
-        <% end %>
-		    <ul class="nav pull-right">
-        	 <% if user_signed_in? %>
-              <li><%= link_to "Add +", new_pin_path %></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <%= image_tag(current_user.image(:tiny), :alt => current_user.name, :title => current_user.name) %>
-                <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><%= link_to "My Channels", channels_path %></li>
-                    <li><%= link_to "Edit your profile", edit_user_registration_path %></li>
-                    <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-                </ul>
-			     <% else %>
-            <li><%= link_to "Login", new_user_session_path %></li>
+            <% if user_signed_in? %>
+            
+            
             <% end %>
-		    </ul>
+    		    <ul class="nav pull-right">
+            	  <% if user_signed_in? %>
+                  <li><%= link_to "Add +", new_pin_path %></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <%= image_tag(current_user.image(:tiny), :alt => current_user.name, :title => current_user.name) %>
+                    <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><%= link_to "My Channels", channels_path %></li>
+                        <li><%= link_to "Edit your profile", edit_user_registration_path %></li>
+                        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                    </ul>
+    			      <% else %>
+                  <li><%= link_to "Login", new_user_session_path %></li>
+                <% end %>
+    		    </ul>
         
-      </div>
+        </div>
  
     </div>
   </div>
