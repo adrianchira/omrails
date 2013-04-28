@@ -3,11 +3,15 @@
 <!--http://i3.ytimg.com/vi/<%= pin.yt_video_id %>/mqdefault.jpg 
 http://www.youtube.com/embed/<%= pin.yt_video_id %> -->
 <% if pin.site_id == 1 %>
-	<a href="/pins/<%= pin.id %>"><img width="270" height="158" src="http://i3.ytimg.com/vi/<%= pin.yt_video_id %>/mqdefault.jpg" frameborder="0" ></img></a>
+	<a href="/pins/<%= pin.id %>"><img src="/assets/PlayButton.png" width="270" height="auto" border="0" style="background:URL(http://i3.ytimg.com/vi/<%= pin.yt_video_id %>/mqdefault.jpg) center center black;" frameborder="0" ></img>
+		</span> 
+	</a>
 <% else %>
-<% url ="http://vimeo.com/#{pin.yt_video_id}" %>
-<% photo_url = Nokogiri::HTML(open(url)).css("meta[property='og:image']").first.attributes["content"] %>
-	<iframe src="<%= photo_url %>" width="270" height="158" frameborder="0" ></iframe>
+
+	<a href="/pins/<%= pin.id %>"><img src="/assets/PlayButton.png" width="270" height="auto" border="0" style="background:URL(<%= pin.thumb_url %>) center center black;" frameborder="0" ></img>
+	  
+	</span> 
+	</a>
 <% end %> 
 
 	<p class="description">

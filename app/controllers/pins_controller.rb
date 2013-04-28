@@ -35,6 +35,8 @@
   def new
     
     @pin = current_user.pins.new
+    
+     
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @pin }
@@ -50,6 +52,14 @@
   # POST /pins.json
   def create
     @pin = current_user.pins.new(params[:pin])
+    if @pin.site_id == 1
+      @pin.thumb_url = "http://i3.ytimg.com/vi/#{@pin.yt_video_id}/mqdefault.jpg" 
+    else 
+      url ="http://vimeo.com/#{@pin.yt_video_id}"      
+      vimeo_video_json_url     = "http://vimeo.com/api/v2/video/#{@pin.yt_video_id}.json"    # API call
+      thumbnail_image_location = JSON.parse(open(vimeo_video_json_url).read).first['thumbnail_medium'] rescue nil
+      @pin.thumb_url = thumbnail_image_location
+    end
 
     respond_to do |format|
       if @pin.save
@@ -100,7 +110,7 @@
   
   pin = Pin.find(params[:pin])
   @channel = current_user.channels.last
-  new_pin = current_user.pins.new(:description => pin.description, :yt_video_id => pin.yt_video_id, :site_id => pin.site_id, :channel_id => @channel.id)    
+  new_pin = current_user.pins.new(:description => pin.description, :yt_video_id => pin.yt_video_id, :site_id => pin.site_id, :channel_id => @channel.id, :thumb_url => pin.thumb_url)    
   respond_to do |format|
     
     if new_pin.save

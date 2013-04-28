@@ -8,7 +8,7 @@ $btnPrimaryBackground:  #DD1F26;
 $navbarBackgroundHighlight: lightgrey;
 $navbarBackground: white;
 /************************ Import Bootstrap ********************************/
-@import 'bootstrap';
+
 @import 'bootstrap-responsive';
 @import "flat-ui";
 
@@ -38,7 +38,7 @@ body {
 	display: none;
 }
 .navbar-search {
-		margin-top: 15px;
+		margin-top: 25px;
 
 }
 
@@ -75,6 +75,7 @@ border: 0;
 /* Required for jQuery Masonry */
 
 .box {
+	
 	margin: 5px;
 	padding: 5px;
 	font-size: 11px;
@@ -88,10 +89,23 @@ border: 0;
 }
 
 .box img {
+	position: relative;
 	diplay: block;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+	
+}
+
+
+.playIcon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    bottom: 50%;
+    right: 50%;
+    
+    z-index: 10;
 }
 
 .description {

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130414023032) do
+ActiveRecord::Schema.define(:version => 20130428104541) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20130414023032) do
     t.string   "site",               :default => "youtube"
     t.integer  "channel_id"
     t.integer  "site_id"
+    t.string   "thumb_url"
   end
 
   add_index "pins", ["channel_id"], :name => "index_pins_on_channel_id"
