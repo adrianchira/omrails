@@ -1,13 +1,11 @@
 Omrails::Application.routes.draw do 
-  
+  resources :sites
 
 
   resources :channels
 
 
   resources :comments
-
-  resources :users
 
 
   
