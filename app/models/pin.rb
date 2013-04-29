@@ -17,7 +17,8 @@ class Pin < ActiveRecord::Base
 
 def self.search(search)
   if search
-    find(:all, :conditions => ['description LIKE ?', "%#{search}%"], order: "created_at desc")
+    losearch = search.downcase
+    find(:all, :conditions => ['lower(description) LIKE ?', "%#{losearch}%"], order: "created_at desc")
   else
     find_with_reputation(:votes, :all, order: "created_at desc")
     
