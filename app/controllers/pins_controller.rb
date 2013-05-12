@@ -38,7 +38,7 @@
       @pin.description = params[:description]
       @pin.thumb_url = params[:media]
         regExp = /http:\/\/(www\.)?vimeo.com\/(\d+)($|\/)/
-        
+       if params[:description] 
         if params[:yt_video_id]
           @pin.yt_video_id = params[:yt_video_id]
         else
@@ -66,6 +66,8 @@
 
           end
         end
+        @hidden = 'true'
+      end
       
 
      
