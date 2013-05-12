@@ -7,7 +7,7 @@
 				<% if @pin.site_id == 2 %>
 					<iframe src="http://player.vimeo.com/video/<%= @pin.yt_video_id %>" width="98%" height="415" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 				<% else %>
-					<iframe src="http://embed.ted.com/<%= @pin.yt_video_id %>" width="98%" height="415" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+					<iframe src="<%= @pin.yt_video_id %>" width="98%" height="415" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 				<% end %>
 			<% end %>
 
