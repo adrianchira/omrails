@@ -8,6 +8,7 @@
 	</head>
 	<body>
 		<%= render 'layouts/header' %>
+		<div class="body">
 		<div class="container">
 			<% flash.each do |name, msg| %>
 				<%= content_tag(:div, msg, class: "alert alert-#{name}") %>
@@ -22,6 +23,7 @@
 					<%= link_to (image_tag 'back-to-top.png'), '#' %>
 				</div>		
 		</div><!-- End container -->
+	</div>
 
 				<div class="container">
 					<p>
