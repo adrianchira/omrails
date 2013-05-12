@@ -53,7 +53,7 @@
                 @pin.site_id = "1"
               else
                 
-                @pin.yt_video_id = youtube_url
+                @pin.yt_video_id = youtube_url.gsub('www','embed')
                 @pin.site_id = "3"
               
               
@@ -86,14 +86,7 @@
   # POST /pins.json
   def create
     @pin = current_user.pins.new(params[:pin])
-    if @pin.site_id == 1
-      @pin.thumb_url = "http://i3.ytimg.com/vi/#{@pin.yt_video_id}/mqdefault.jpg" 
-    else 
-      url ="http://vimeo.com/#{@pin.yt_video_id}"      
-      vimeo_video_json_url     = "http://vimeo.com/api/v2/video/#{@pin.yt_video_id}.json"    # API call
-      thumbnail_image_location = JSON.parse(open(vimeo_video_json_url).read).first['thumbnail_medium'] rescue nil
-      @pin.thumb_url = thumbnail_image_location
-    end
+    
 
     respond_to do |format|
       if @pin.save
