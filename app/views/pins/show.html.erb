@@ -4,11 +4,15 @@
 			<% if @pin.site_id == 1 %>
 			<iframe width="98%" height="415" src="http://www.youtube.com/embed/<%= @pin.yt_video_id %>?autoplay=1" frameborder="0" ></iframe>
 			<% else %>
-			<iframe src="http://player.vimeo.com/video/<%= @pin.yt_video_id %>" width="98%" height="415" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+				<% if @pin.site_id == 2 %>
+					<iframe src="http://player.vimeo.com/video/<%= @pin.yt_video_id %>" width="98%" height="415" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+				<% else %>
+					<iframe src="http://embed.ted.com/<%= @pin.yt_video_id %>" width="98%" height="415" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+				<% end %>
 			<% end %>
 
 <p>
-  
+
   <%= @pin.description %>
 </p>
 <p>

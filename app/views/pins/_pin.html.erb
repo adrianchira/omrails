@@ -7,9 +7,13 @@ http://www.youtube.com/embed/<%= pin.yt_video_id %> -->
 		</span> 
 	</a>
 <% else %>
-
-	<a href="/pins/<%= pin.id %>"><img src="/assets/PlayButton.png" width="270" height="auto" border="0" style="background:URL(<%= pin.thumb_url %>) center center black;" frameborder="0" ></img>
-	  
+	<% if pin.site_id == 2 %>
+		<a href="/pins/<%= pin.id %>"><img src="/assets/PlayButton.png" width="270" height="auto" border="0" style="background:URL(<%= pin.thumb_url %>) center center black;" frameborder="0" ></img>
+	<% else %>
+		<% if pin.site_id == 3 %>
+			<a href="/pins/<%= pin.id %>"><img src="/assets/PlayButton.png" width="270" height="auto" border="0" style="background:URL(<%= pin.thumb_url %>) center center black;" frameborder="0" ></img>
+		<% end %>
+	<% end %>	
 	</span> 
 	</a>
 <% end %> 

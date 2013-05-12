@@ -36,8 +36,38 @@
     
       @pin = current_user.pins.new()
       @pin.description = params[:description]
-      @pin.yt_video_id = params[:yt_video_id]
-      @pin.site_id = params[:site_id]
+      @pin.thumb_url = params[:media]
+        regExp = /http:\/\/(www\.)?vimeo.com\/(\d+)($|\/)/
+        
+        if params[:yt_video_id]
+          @pin.yt_video_id = params[:yt_video_id]
+        else
+          youtube_url = params[:url]
+          match = youtube_url.match(regExp)
+          if !match
+            if youtube_url.match(/youtu\.be\/([^\?]*)/)
+              @pin.yt_video_id = youtube_url.match(/youtu\.be\/([^\?]*)/)[1]
+            else
+              if youtube_url.match(/v=([^&]*)/)
+                @pin.yt_video_id = youtube_url.match(/v=([^&]*)/)[1]
+                @pin.site_id = "1"
+              else
+                
+                @pin.yt_video_id = youtube_url
+                @pin.site_id = "3"
+              
+              
+              end
+            end
+          else
+            @pin.yt_video_id = match[2]
+            
+            @pin.site_id = "2"
+
+          end
+        end
+      
+
      
       
      

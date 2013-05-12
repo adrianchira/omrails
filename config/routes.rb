@@ -7,6 +7,8 @@ Omrails::Application.routes.draw do
 
   resources :comments
 
+  resources :assets
+
 
   
     resources :pins  do

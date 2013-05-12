@@ -7,6 +7,7 @@ class Pin < ActiveRecord::Base
   validates :yt_video_id, presence: true
   validates :channel_id, presence: true
   validates :site_id, presence: true
+  validates :thumb_url, presence: true
  
   belongs_to :user
   belongs_to :channel

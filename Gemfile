@@ -12,6 +12,7 @@ gem 'activerecord-reputation-system', require: 'reputation_system'
 gem 'will_paginate' 
 gem 'bootstrap-will_paginate'
 gem 'nokogiri'
+gem 'mechanize'
 
 
 group :production do
